@@ -231,26 +231,27 @@ function isImage(path) {
 }
 
 // ════════════════════════════════════════
-//  Hook — FilePicker rendern
+//  V13: _onRender patchen
 // ════════════════════════════════════════
 
-Hooks.on("renderFilePicker", (app, html) => {
-  // html ist in V13 ein HTMLElement, kein jQuery-Objekt
-  const root = html instanceof HTMLElement ? html : html[0];
-  if (!root) return;
+function patchFilePicker() {
+  const FP = foundry.applications?.apps?.FilePicker?.implementation;
+  if (!FP) {
+    console.warn("[FilePicker Pro] FilePicker-Klasse nicht gefunden.");
+    return;
+  }
 
-  enhanceQuicklinks(root);
-  injectHoverPreview(root);
-});
+  const original = FP.prototype._onRender;
+  FP.prototype._onRender = function(context, options) {
+    if (original) original.call(this, context, options);
+    const root = this.element;
+    if (!root) return;
+    enhanceQuicklinks(root);
+    injectHoverPreview(root);
+  };
 
-// V13 ApplicationV2 feuert ein anderes Event
-Hooks.on("renderApplication", (app, html) => {
-  if (app.constructor.name !== "FilePicker") return;
-  const root = html instanceof HTMLElement ? html : html[0];
-  if (!root) return;
-  enhanceQuicklinks(root);
-  injectHoverPreview(root);
-});
+  console.log(`%c[FilePicker Pro] %c_onRender gepacht ✓`, "color:#60c0f0;font-weight:bold", "color:#80c090");
+}
 
 // ════════════════════════════════════════
 //  Init
@@ -264,9 +265,7 @@ Hooks.once("init", () => {
     default: {},
   });
 
-  console.log(`%c[FilePicker Pro] %cgeladen ✓`, "color:#60c0f0;font-weight:bold", "color:#80c090");
-});
+  patchFilePicker();
 
-Hooks.once("ready", () => {
-  console.log(`%c[FilePicker Pro] %cbereit`, "color:#60c0f0;font-weight:bold", "color:#80c090");
+  console.log(`%c[FilePicker Pro] %cgeladen ✓`, "color:#60c0f0;font-weight:bold", "color:#80c090");
 });
