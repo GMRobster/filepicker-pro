@@ -1,35 +1,17 @@
 {
   "id": "filepicker-pro",
   "title": "FilePicker Pro",
-  "description": "Erweitert den nativen FilePicker um eine Sidebar mit Favoriten und Verlauf — direkte Navigation ohne Klick-Orgie.",
-  "version": "2.0.0",
+  "description": "Verbessert den nativen FilePicker: eigene Namen für Quicklinks und große Hover-Vorschau für Bilder.",
+  "version": "3.0.0",
   "compatibility": {
-    "minimum": "11",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
-  "authors": [
-    {
-      "name": "Robster",
-      "flags": {}
-    }
-  ],
-  "esmodules": [
-    "scripts/main.mjs"
-  ],
-  "styles": [
-    "styles/filepicker-pro.css"
-  ],
+  "authors": [{ "name": "Robster", "flags": {} }],
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/filepicker-pro.css"],
   "languages": [
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    },
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
+    { "lang": "de", "name": "Deutsch", "path": "lang/de.json" }
   ],
   "url": "https://github.com/GMRobster/filepicker-pro",
   "manifest": "https://github.com/GMRobster/filepicker-pro/releases/latest/download/module.json",
