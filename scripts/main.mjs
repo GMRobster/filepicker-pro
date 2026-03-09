@@ -14,7 +14,7 @@
  *  • Auto-Tracking wenn Actor/Token-Bild gesetzt wird (★ NEU)
  */
 
-const MODULE_ID = "asset-navigator";
+const MODULE_ID = "filepicker-pro";
 const MAX_RECENT_DEFAULT = 20;
 
 // ════════════════════════════════════════
@@ -387,7 +387,7 @@ class ANOverlay extends Application {
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "asset-navigator-overlay", popOut: false, resizable: false,
+      id: "filepicker-pro-overlay", popOut: false, resizable: false,
     });
   }
 
@@ -400,10 +400,10 @@ class ANOverlay extends Application {
   }
 
   async render() {
-    let el = document.getElementById("asset-navigator-overlay");
+    let el = document.getElementById("filepicker-pro-overlay");
     if (!el) {
       el = document.createElement("div");
-      el.id = "asset-navigator-overlay";
+      el.id = "filepicker-pro-overlay";
       document.body.appendChild(el);
     }
     el.innerHTML = this._buildHTML();
@@ -413,10 +413,10 @@ class ANOverlay extends Application {
     return this;
   }
 
-  close() { document.getElementById("asset-navigator-overlay")?.classList.add("hidden"); }
+  close() { document.getElementById("filepicker-pro-overlay")?.classList.add("hidden"); }
 
   toggle() {
-    const el = document.getElementById("asset-navigator-overlay");
+    const el = document.getElementById("filepicker-pro-overlay");
     if (!el || el.classList.contains("hidden")) this.render();
     else this.close();
   }
@@ -739,7 +739,7 @@ function matchesShortcut(ev, sc) {
 Hooks.on("getSceneControlButtons", controls => {
   const basic = controls.find(c => c.name === "basic");
   if (basic) basic.tools.push({
-    name: "asset-navigator", title: "Asset Navigator (Ctrl+Space)",
+    name: "filepicker-pro", title: "Asset Navigator (Ctrl+Space)",
     icon: "fas fa-folder-open", button: true,
     onClick: () => _overlay?.toggle(),
   });
@@ -780,7 +780,7 @@ Hooks.once("ready", () => {
       _overlay.toggle();
     }
     if (ev.key === "Escape") {
-      const el = document.getElementById("asset-navigator-overlay");
+      const el = document.getElementById("filepicker-pro-overlay");
       if (el && !el.classList.contains("hidden")) { _overlay.close(); ev.stopPropagation(); }
     }
   });

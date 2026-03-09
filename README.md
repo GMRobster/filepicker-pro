@@ -37,7 +37,7 @@ Format: `ctrl+space`, `alt+a`, `shift+f`, etc.
 ## Installation
 
 ### Option A — Manuell (empfohlen für Entwicklung)
-1. Diesen Ordner nach `FoundryVTT/Data/modules/asset-navigator/` kopieren
+1. Diesen Ordner nach `FoundryVTT/Data/modules/filepicker-pro/` kopieren
 2. Foundry neu starten
 3. Modul in den World-Einstellungen aktivieren
 
@@ -62,7 +62,7 @@ In Foundry unter „Module installieren" die URL zur `module.json` eingeben.
 Andere Module können die API nutzen:
 
 ```js
-const api = game.modules.get("asset-navigator").api;
+const api = game.modules.get("filepicker-pro").api;
 
 api.toggleOverlay();          // Overlay öffnen/schließen
 api.addFavorite("/path/to/"); // Favorit hinzufügen/entfernen
