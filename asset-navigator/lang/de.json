@@ -1,0 +1,20 @@
+{
+  "ASSETNAVIGATOR.Title": "Asset Navigator",
+  "ASSETNAVIGATOR.Favorites": "Favoriten",
+  "ASSETNAVIGATOR.Recent": "Zuletzt verwendet",
+  "ASSETNAVIGATOR.Search": "Suche...",
+  "ASSETNAVIGATOR.SearchAll": "Alle Dateien durchsuchen",
+  "ASSETNAVIGATOR.NoFavorites": "Noch keine Favoriten. Rechtsklick auf einen Ordner → Als Favorit speichern.",
+  "ASSETNAVIGATOR.NoRecent": "Noch keine kürzlich verwendeten Pfade.",
+  "ASSETNAVIGATOR.AddFavorite": "Als Favorit hinzufügen",
+  "ASSETNAVIGATOR.RemoveFavorite": "Favorit entfernen",
+  "ASSETNAVIGATOR.CopyPath": "Pfad kopieren",
+  "ASSETNAVIGATOR.OpenInPicker": "Im FilePicker öffnen",
+  "ASSETNAVIGATOR.QuickAccess": "Schnellzugriff",
+  "ASSETNAVIGATOR.Settings.MaxRecent": "Anzahl gespeicherter Pfade",
+  "ASSETNAVIGATOR.Settings.MaxRecentHint": "Wie viele zuletzt verwendete Pfade gespeichert werden.",
+  "ASSETNAVIGATOR.Settings.Shortcut": "Tastenkürzel",
+  "ASSETNAVIGATOR.Settings.ShortcutHint": "Tastenkombination zum Öffnen des Quick Access Overlays.",
+  "ASSETNAVIGATOR.Pinned": "Angeheftet",
+  "ASSETNAVIGATOR.ClearRecent": "Verlauf löschen"
+}

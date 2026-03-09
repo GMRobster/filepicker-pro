@@ -1,0 +1,20 @@
+{
+  "ASSETNAVIGATOR.Title": "Asset Navigator",
+  "ASSETNAVIGATOR.Favorites": "Favorites",
+  "ASSETNAVIGATOR.Recent": "Recently Used",
+  "ASSETNAVIGATOR.Search": "Search...",
+  "ASSETNAVIGATOR.SearchAll": "Search all files",
+  "ASSETNAVIGATOR.NoFavorites": "No favorites yet. Right-click a folder → Add to Favorites.",
+  "ASSETNAVIGATOR.NoRecent": "No recently used paths yet.",
+  "ASSETNAVIGATOR.AddFavorite": "Add to Favorites",
+  "ASSETNAVIGATOR.RemoveFavorite": "Remove Favorite",
+  "ASSETNAVIGATOR.CopyPath": "Copy Path",
+  "ASSETNAVIGATOR.OpenInPicker": "Open in FilePicker",
+  "ASSETNAVIGATOR.QuickAccess": "Quick Access",
+  "ASSETNAVIGATOR.Settings.MaxRecent": "Max Recent Paths",
+  "ASSETNAVIGATOR.Settings.MaxRecentHint": "How many recently used paths to remember.",
+  "ASSETNAVIGATOR.Settings.Shortcut": "Keyboard Shortcut",
+  "ASSETNAVIGATOR.Settings.ShortcutHint": "Key combo to open the Quick Access overlay.",
+  "ASSETNAVIGATOR.Pinned": "Pinned",
+  "ASSETNAVIGATOR.ClearRecent": "Clear History"
+}
