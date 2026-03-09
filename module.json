@@ -1,8 +1,8 @@
 {
   "id": "filepicker-pro",
   "title": "FilePicker Pro",
-  "description": "Schnellzugriff auf Assets per Favoriten, Bookmarks, Suche und zuletzt geöffneten Ordnern. Ersetzt die Klick-Orgie durch den Verzeichnisbaum.",
-  "version": "1.1.0",
+  "description": "Erweitert den nativen FilePicker um eine Sidebar mit Favoriten und Verlauf — direkte Navigation ohne Klick-Orgie.",
+  "version": "2.0.0",
   "compatibility": {
     "minimum": "11",
     "verified": "12"

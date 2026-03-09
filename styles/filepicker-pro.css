@@ -1,293 +1,223 @@
 /* ============================================================
-   Asset Navigator — Styles
+   FilePicker Pro — Sidebar Styles
    ============================================================ */
 
-/* ── Quick Access Overlay ── */
-#filepicker-pro-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
+/* ── Wrapper: Sidebar + nativer Browser nebeneinander ── */
+.fpp-wrapper {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 8vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  animation: an-fade-in 0.12s ease;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
-#filepicker-pro-overlay.hidden {
-  display: none;
-}
-
-@keyframes an-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.an-panel {
-  width: min(680px, 94vw);
-  max-height: 72vh;
-  background: #1a1a2e;
-  border: 1px solid #4a4a6a;
-  border-radius: 10px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(120,100,200,0.15);
+/* ── Sidebar ── */
+.fpp-sidebar {
+  width: 180px;
+  min-width: 160px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
+  background: #1e1e2e;
+  border-right: 1px solid #3a3a5a;
   overflow: hidden;
-  animation: an-slide-in 0.14s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes an-slide-in {
-  from { transform: translateY(-18px) scale(0.97); opacity: 0; }
-  to   { transform: translateY(0)     scale(1);    opacity: 1; }
-}
-
-/* ── Search bar ── */
-.an-search-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 14px;
-  border-bottom: 1px solid #2e2e4e;
-}
-
-.an-search-wrap i {
-  color: #7070a0;
-  font-size: 14px;
   flex-shrink: 0;
-}
-
-.an-search-wrap input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #e0e0f0;
-  font-size: 15px;
-  font-family: inherit;
-}
-
-.an-search-wrap input::placeholder {
-  color: #5050708a;
-}
-
-.an-kbd {
-  font-size: 10px;
-  color: #6060808a;
-  background: #2a2a40;
-  border: 1px solid #3a3a5a;
-  border-radius: 4px;
-  padding: 2px 6px;
-  white-space: nowrap;
-}
-
-/* ── Tabs ── */
-.an-tabs {
-  display: flex;
-  border-bottom: 1px solid #2e2e4e;
-  background: #16162a;
-}
-
-.an-tab {
-  padding: 8px 18px;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #6060888a;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  user-select: none;
 }
 
-.an-tab:hover { color: #a0a0c8; }
-
-.an-tab.active {
-  color: #b090ff;
-  border-bottom-color: #b090ff;
-}
-
-/* ── List area ── */
-.an-list-wrap {
-  flex: 1;
-  overflow-y: auto;
-  padding: 6px 0;
-}
-
-.an-list-wrap::-webkit-scrollbar { width: 6px; }
-.an-list-wrap::-webkit-scrollbar-track { background: transparent; }
-.an-list-wrap::-webkit-scrollbar-thumb { background: #3a3a5a; border-radius: 3px; }
-
-.an-empty {
-  padding: 28px 20px;
-  text-align: center;
-  color: #50507090;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-/* ── Individual items ── */
-.an-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: background 0.1s;
-  border-radius: 0;
-  position: relative;
-}
-
-.an-item:hover { background: #262640; }
-.an-item.focused { background: #2e2e50; }
-
-.an-item-icon {
-  width: 22px;
-  text-align: center;
-  color: #8888b8;
-  font-size: 13px;
-  flex-shrink: 0;
-}
-
-.an-item-icon.folder { color: #f0b060; }
-.an-item-icon.image  { color: #60c0f0; }
-.an-item-icon.audio  { color: #80e0a0; }
-.an-item-icon.video  { color: #f07880; }
-
-.an-item-label {
-  flex: 1;
-  font-size: 13px;
-  color: #c8c8e8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.an-item-path {
-  font-size: 10px;
-  color: #50508080;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 220px;
-}
-
-.an-item-actions {
-  display: flex;
-  gap: 4px;
-  opacity: 0;
-  transition: opacity 0.12s;
-}
-
-.an-item:hover .an-item-actions { opacity: 1; }
-
-.an-item-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #6060888a;
-  padding: 3px 5px;
-  border-radius: 4px;
-  font-size: 11px;
-  transition: color 0.12s, background 0.12s;
-  line-height: 1;
-}
-
-.an-item-btn:hover {
-  color: #c0c0e8;
-  background: #3a3a5a;
-}
-
-.an-item-btn.fav-active { color: #f0b060; }
-
-/* ── Search results ── */
-.an-section-header {
-  padding: 4px 14px 2px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #50508090;
-}
-
-/* ── FilePicker Bookmark Bar ── */
-.an-picker-bar {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px 4px;
-  border-bottom: 1px solid var(--color-border-light, #c9c1b2);
-  flex-wrap: wrap;
-  background: rgba(0,0,0,0.03);
-  min-height: 30px;
-}
-
-.an-picker-bar-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #80807090;
-  margin-right: 2px;
-  white-space: nowrap;
-}
-
-.an-bookmark-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  background: rgba(100,80,160,0.12);
-  border: 1px solid rgba(100,80,160,0.25);
-  border-radius: 12px;
-  font-size: 11px;
-  color: #3a305a;
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s;
-  white-space: nowrap;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.an-bookmark-chip:hover {
-  background: rgba(100,80,160,0.25);
-  border-color: rgba(100,80,160,0.5);
-}
-
-.an-bookmark-chip i { font-size: 10px; color: #f0b060; }
-
-.an-picker-add-btn {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(100,80,160,0.1);
-  border: 1px dashed rgba(100,80,160,0.3);
-  color: #7060a0;
-  font-size: 13px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.12s;
-  flex-shrink: 0;
-}
-
-.an-picker-add-btn:hover { background: rgba(100,80,160,0.25); }
-
-/* ── Sidebar mini button ── */
-#an-sidebar-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ── Context menu additions ── */
-.an-ctx-item {
+/* ── Aktueller Ordner + Stern ── */
+.fpp-current {
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 7px 8px;
+  background: #16162a;
+  border-bottom: 1px solid #2e2e4e;
+  min-height: 32px;
+}
+
+.fpp-star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #50507090;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.fpp-star-btn:hover            { color: #f0b060; }
+.fpp-star-btn--active          { color: #f0b060; }
+.fpp-star-btn--active:hover    { color: #c08030; }
+
+.fpp-current-label {
+  font-size: 11px;
+  color: #8888a8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* ── Tabs ── */
+.fpp-tabs {
+  display: flex;
+  border-bottom: 1px solid #2e2e4e;
+  background: #18182a;
+}
+
+.fpp-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #60608090;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: color 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.fpp-tab:hover            { color: #a0a0c8; }
+.fpp-tab--active          { color: #60c0f0; border-bottom-color: #60c0f0; }
+
+.fpp-badge {
+  background: #2e2e50;
+  border-radius: 8px;
+  padding: 1px 5px;
+  font-size: 9px;
+  color: #7070a0;
+}
+
+/* ── Tab-Inhalte ── */
+.fpp-tab-content {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.fpp-tab-content--active {
+  display: flex;
+}
+
+/* ── Scrollbare Liste ── */
+.fpp-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.fpp-list::-webkit-scrollbar        { width: 4px; }
+.fpp-list::-webkit-scrollbar-track  { background: transparent; }
+.fpp-list::-webkit-scrollbar-thumb  { background: #3a3a5a; border-radius: 2px; }
+
+/* ── Leerer Zustand ── */
+.fpp-empty {
+  padding: 14px 10px;
+  color: #50507090;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ── Einzelner Eintrag ── */
+.fpp-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.1s;
+  position: relative;
+}
+
+.fpp-item:hover         { background: #262640; }
+.fpp-item--active       { background: #1e2040; }
+.fpp-item--active .fpp-item-label { color: #60c0f0; }
+
+.fpp-item-icon {
+  font-size: 11px;
+  color: #f0b060;
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.fpp-recent-item .fpp-item-icon { color: #7070a0; }
+
+.fpp-item-label {
+  flex: 1;
+  color: #c0c0e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+/* ── Entfernen-Button ── */
+.fpp-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #50507000;
+  font-size: 10px;
+  padding: 1px 3px;
+  border-radius: 3px;
+  transition: color 0.12s, background 0.12s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.fpp-item:hover .fpp-item-remove    { color: #70709090; }
+.fpp-item-remove:hover              { color: #f07070 !important; background: #3a2020; }
+
+/* ── Verlauf löschen ── */
+.fpp-clear-btn {
+  background: none;
+  border: none;
+  border-top: 1px solid #2e2e4e;
+  color: #50507080;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 6px 8px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.12s, background 0.12s;
+}
+
+.fpp-clear-btn:hover {
+  color: #f07070;
+  background: #2a1a1a;
+}
+
+/* ── Nativer FilePicker-Body bekommt den Rest ── */
+.fpp-wrapper .filepicker-body,
+.fpp-wrapper .filepicker {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+}
+
+/* ── FilePicker Dialog etwas breiter machen ── */
+#filepicker.app.window-app {
+  min-width: 600px !important;
+  width: max(600px, 50vw) !important;
 }
