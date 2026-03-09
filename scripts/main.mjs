@@ -70,17 +70,23 @@ async function injectSidebar(app, html) {
   const root = html[0];
   if (!root) return;
 
-  // Verhindere doppelte Injection
-  if (root.querySelector(".fpp-sidebar")) return;
-
   // Aktuellen Pfad tracken
   const currentPath = app.result?.target ?? "";
   if (currentPath) await pushRecent(currentPath);
 
-  // FilePicker-Body finden — das ist der scrollbare Dateibereich
-  const body = root.querySelector(".filepicker-body")
-    ?? root.querySelector(".filepicker")
-    ?? root;
+  // Wenn Sidebar schon da ist, nur aktualisieren (bei Navigation)
+  const existingSidebar = root.querySelector(".fpp-sidebar");
+  if (existingSidebar) {
+    refreshSidebar(existingSidebar, app, currentPath);
+    return;
+  }
+
+  // Wrapper darf auch nur einmal existieren
+  if (root.querySelector(".fpp-wrapper")) return;
+
+  // FilePicker-Body finden — verschiedene Foundry-Versionen haben unterschiedliche Strukturen
+  const body = root.querySelector(".filepicker-body");
+  if (!body) return; // Kein Body gefunden, nichts tun
 
   // Wrapper um body + sidebar
   const wrapper = document.createElement("div");
@@ -88,7 +94,7 @@ async function injectSidebar(app, html) {
   body.parentNode.insertBefore(wrapper, body);
   wrapper.appendChild(body);
 
-  // Sidebar bauen
+  // Sidebar bauen und links einfügen
   const sidebar = buildSidebar(app, currentPath);
   wrapper.insertBefore(sidebar, body);
 }
