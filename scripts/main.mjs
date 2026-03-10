@@ -85,14 +85,19 @@ async function injectSidebar(app) {
     return;
   }
 
-  // Sidebar direkt in window-content einfügen — volle Fensterhöhe
-  const windowContent = root.querySelector(".window-content");
-  if (!windowContent) return;
+  // Body-Bereich finden
+  const body = root.querySelector("section.body");
+  if (!body) return;
 
-  // Sidebar
+  // Sidebar + Body in einen Wrapper — nur diese zwei, Rest bleibt unberührt
+  const wrapper = document.createElement("div");
+  wrapper.className = "fpp-wrapper";
+  body.parentNode.insertBefore(wrapper, body);
+  wrapper.appendChild(body);
+
   const sidebar = document.createElement("div");
   sidebar.className = "fpp-sidebar";
-  windowContent.insertBefore(sidebar, windowContent.firstChild);
+  wrapper.insertBefore(sidebar, body);
 
   await refreshSidebar(sidebar, app);
 }
