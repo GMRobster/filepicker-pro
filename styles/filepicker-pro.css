@@ -426,8 +426,22 @@
   padding: 0 4px;
 }
 
-/* ── FilePicker etwas breiter ── */
+/* ── FilePicker: nur minimale Breite, kein Erzwingen ── */
 form#file-picker {
-  min-width: 640px !important;
-  width: max(640px, 52vw) !important;
+  min-width: 480px !important;
+}
+
+/* ── Wrapper + Sidebar volle Höhe ── */
+.window-content.standard-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fpp-wrapper {
+  flex: 1;
+  min-height: 0;
+}
+
+.fpp-sidebar {
+  height: 100%;
 }
