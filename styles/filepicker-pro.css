@@ -1,63 +1,182 @@
 /* ============================================================
-   FilePicker Pro v3 — Styles
+   FilePicker Pro v4 — Styles
    ============================================================ */
 
-/* ── Quicklink-Einträge ── */
-
-.quick-link-item {
-  position: relative;
-}
-
-/* Zwei-Zeilen-Layout für Quicklinks */
-.fpp-ql-name {
-  display: block;
-  font-weight: 600;
-  font-size: 12px;
-  color: var(--color-text-primary, #ccc);
-  white-space: nowrap;
+/* ── Wrapper: Sidebar links + Body rechts ── */
+.fpp-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.fpp-ql-path {
-  display: block;
+.fpp-wrapper section.body {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+}
+
+/* ── Sidebar ── */
+.fpp-sidebar {
+  width: 160px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  background: #161622;
+  border-right: 1px solid #2e2e44;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ── Sidebar Header ── */
+.fpp-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 8px 6px;
+  border-bottom: 1px solid #2e2e44;
+  background: #12121e;
+}
+
+.fpp-sidebar-title {
   font-size: 10px;
-  color: var(--color-text-muted, #888);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #60608090;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fpp-sidebar-title i {
+  color: #f0b060;
+  font-size: 10px;
+}
+
+.fpp-btn-add {
+  background: none;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  color: #6060a0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  padding: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.fpp-btn-add:hover {
+  background: #2e2e50;
+  color: #a0a0e0;
+  border-color: #6060a0;
+}
+
+/* ── Tab-Liste ── */
+.fpp-tab-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.fpp-tab-list::-webkit-scrollbar       { width: 3px; }
+.fpp-tab-list::-webkit-scrollbar-track { background: transparent; }
+.fpp-tab-list::-webkit-scrollbar-thumb { background: #3a3a5a; border-radius: 2px; }
+
+.fpp-empty {
+  padding: 16px 10px;
+  font-size: 10px;
+  color: #40405090;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ── Einzelner Tab ── */
+.fpp-tab {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  border-radius: 0;
+  transition: background 0.1s;
+  min-height: 30px;
+  overflow: hidden;
+}
+
+.fpp-tab:hover { background: rgba(255,255,255,0.04); }
+
+.fpp-tab--active {
+  background: rgba(255,255,255,0.07);
+}
+
+/* Farbbalken links */
+.fpp-tab-color-bar {
+  width: 4px;
+  min-width: 4px;
+  align-self: stretch;
+  background: var(--fpp-color, #6060a0);
+  flex-shrink: 0;
+}
+
+.fpp-tab--active .fpp-tab-color-bar {
+  width: 5px;
+}
+
+/* Tab-Label */
+.fpp-tab-label {
+  flex: 1;
+  font-size: 11px;
+  color: #b0b0d0;
+  padding: 7px 6px 7px 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  opacity: 0.75;
 }
 
-/* Stift-Button zum Umbenennen */
-.fpp-rename-btn {
-  position: absolute;
-  right: 28px; /* links vom bestehenden Stern-Button */
-  top: 50%;
-  transform: translateY(-50%);
+.fpp-tab--active .fpp-tab-label {
+  color: var(--fpp-color, #a0a0e0);
+  font-weight: 600;
+}
+
+/* Aktions-Buttons (erscheinen beim Hover) */
+.fpp-tab-actions {
+  display: flex;
+  gap: 1px;
+  padding-right: 4px;
+  opacity: 0;
+  transition: opacity 0.12s;
+  flex-shrink: 0;
+}
+
+.fpp-tab:hover .fpp-tab-actions { opacity: 1; }
+
+.fpp-btn-edit,
+.fpp-btn-remove {
   background: none;
   border: none;
   cursor: pointer;
-  color: transparent;
-  font-size: 10px;
+  color: #50508090;
+  font-size: 9px;
   padding: 3px 4px;
   border-radius: 3px;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.12s, background 0.12s;
   line-height: 1;
 }
 
-.quick-link-item:hover .fpp-rename-btn {
-  color: var(--color-text-muted, #888);
-}
+.fpp-btn-edit:hover   { color: #a0c0f0; background: rgba(160,192,240,0.1); }
+.fpp-btn-remove:hover { color: #f07070; background: rgba(240,112,112,0.1); }
 
-.fpp-rename-btn:hover {
-  color: var(--color-text-hyperlink, #4a9fd4) !important;
-  background: rgba(74, 159, 212, 0.1);
-}
-
-/* ── Umbenennen-Dialog ── */
-
-.fpp-rename-dialog {
+/* ── Edit-Dialog ── */
+.fpp-dialog {
   position: fixed;
   inset: 0;
   z-index: 10001;
@@ -66,75 +185,149 @@
   justify-content: center;
 }
 
-.fpp-rename-backdrop {
+.fpp-dialog-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
 }
 
-.fpp-rename-box {
+.fpp-dialog-box {
   position: relative;
   z-index: 1;
-  background: var(--color-bg-card, #1e1e2e);
-  border: 1px solid var(--color-border-primary, #4a4a6a);
-  border-radius: 8px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
-  padding: 18px 20px;
-  width: min(420px, 90vw);
+  background: #1a1a2c;
+  border: 1px solid #3a3a5a;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  padding: 20px;
+  width: min(400px, 92vw);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-.fpp-rename-header {
+.fpp-dialog-header {
   font-size: 14px;
   font-weight: 700;
-  color: var(--color-text-primary, #ddd);
+  color: #d0d0f0;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.fpp-rename-header i {
-  color: #60c0f0;
-}
+.fpp-dialog-header i { color: #60c0f0; }
 
-.fpp-rename-path {
-  font-size: 11px;
-  color: var(--color-text-muted, #888);
-  background: rgba(0, 0, 0, 0.2);
+.fpp-dialog-path {
+  font-size: 10px;
+  color: #50508090;
+  background: rgba(0,0,0,0.25);
   border-radius: 4px;
   padding: 5px 8px;
   word-break: break-all;
 }
 
-.fpp-rename-input {
+.fpp-dialog-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #50508090;
+}
+
+.fpp-dialog-input {
   width: 100%;
   padding: 8px 10px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--color-border-primary, #4a4a6a);
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #3a3a5a;
   border-radius: 5px;
-  color: var(--color-text-primary, #ddd);
+  color: #d0d0f0;
   font-size: 13px;
   outline: none;
   transition: border-color 0.15s;
   box-sizing: border-box;
 }
 
-.fpp-rename-input:focus {
-  border-color: #60c0f0;
+.fpp-dialog-input:focus { border-color: #60c0f0; }
+
+/* Farb-Picker */
+.fpp-color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
 }
 
-.fpp-rename-actions {
+.fpp-color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.fpp-color-swatch:hover          { transform: scale(1.2); }
+.fpp-color-swatch--active        { border-color: #ffffff; transform: scale(1.15); }
+
+.fpp-color-custom {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #3a3a5a;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+}
+
+/* Vorschau */
+.fpp-dialog-preview {
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.fpp-dialog-preview-tab {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 28px;
+}
+
+.fpp-dialog-preview-tab .fpp-tab-color-bar {
+  width: 4px;
+  min-width: 4px;
+  align-self: stretch;
+  background: var(--fpp-color, #6060a0);
+}
+
+.fpp-preview-label {
+  font-size: 11px;
+  color: var(--fpp-color, #a0a0e0);
+  font-weight: 600;
+  padding: 6px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fpp-dialog-actions {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+  margin-top: 4px;
 }
 
-.fpp-rename-cancel,
-.fpp-rename-save {
-  padding: 6px 16px;
+.fpp-dialog-cancel,
+.fpp-dialog-save {
+  padding: 7px 18px;
   border-radius: 5px;
   border: 1px solid;
   cursor: pointer;
@@ -143,36 +336,64 @@
   transition: background 0.15s;
 }
 
-.fpp-rename-cancel {
+.fpp-dialog-cancel {
   background: transparent;
-  border-color: var(--color-border-primary, #4a4a6a);
-  color: var(--color-text-muted, #888);
+  border-color: #3a3a5a;
+  color: #70708090;
 }
 
-.fpp-rename-cancel:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
+.fpp-dialog-cancel:hover { background: rgba(255,255,255,0.05); }
 
-.fpp-rename-save {
+.fpp-dialog-save {
   background: #60c0f0;
   border-color: #60c0f0;
   color: #0a0a1a;
 }
 
-.fpp-rename-save:hover {
-  background: #80d0ff;
+.fpp-dialog-save:hover { background: #80d0ff; }
+
+/* ── Kontextmenü ── */
+.fpp-ctx {
+  position: fixed;
+  z-index: 10000;
+  background: #1a1a2c;
+  border: 1px solid #3a3a5a;
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  min-width: 200px;
+  padding: 4px 0;
+  font-size: 12px;
 }
 
-/* ── Hover-Vorschau ── */
+.fpp-ctx-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  color: #c0c0e0;
+  transition: background 0.1s;
+}
 
+.fpp-ctx-item:hover { background: #262640; }
+
+.fpp-ctx-item i {
+  width: 14px;
+  text-align: center;
+  color: #8080a0;
+}
+
+.fpp-ctx-fav i { color: #f0b060; }
+
+/* ── Hover-Vorschau ── */
 #fpp-preview {
   position: fixed;
   z-index: 10000;
   width: 300px;
-  background: var(--color-bg-card, #1a1a2e);
-  border: 1px solid var(--color-border-primary, #4a4a6a);
+  background: #1a1a2c;
+  border: 1px solid #3a3a5a;
   border-radius: 8px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7);
   padding: 6px;
   pointer-events: none;
   opacity: 0;
@@ -187,20 +408,26 @@
 
 .fpp-preview-img {
   width: 100%;
-  height: 288px;
+  height: 280px;
   object-fit: contain;
   display: block;
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0,0,0,0.3);
 }
 
 .fpp-preview-name {
   margin-top: 5px;
-  font-size: 11px;
-  color: var(--color-text-muted, #888);
+  font-size: 10px;
+  color: #50508090;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 4px;
+}
+
+/* ── FilePicker etwas breiter ── */
+form#file-picker {
+  min-width: 640px !important;
+  width: max(640px, 52vw) !important;
 }

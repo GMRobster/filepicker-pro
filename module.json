@@ -1,18 +1,13 @@
 {
   "id": "filepicker-pro",
   "title": "FilePicker Pro",
-  "description": "Verbessert den nativen FilePicker: eigene Namen für Quicklinks und große Hover-Vorschau für Bilder.",
-  "version": "3.0.0",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
+  "description": "Eigene Favoriten-Leiste links im FilePicker mit farbigen, benannten Tabs und Hover-Bildvorschau.",
+  "version": "4.0.0",
+  "compatibility": { "minimum": "13", "verified": "13" },
   "authors": [{ "name": "Robster", "flags": {} }],
   "esmodules": ["scripts/main.mjs"],
   "styles": ["styles/filepicker-pro.css"],
-  "languages": [
-    { "lang": "de", "name": "Deutsch", "path": "lang/de.json" }
-  ],
+  "languages": [{ "lang": "de", "name": "Deutsch", "path": "lang/de.json" }],
   "url": "https://github.com/GMRobster/filepicker-pro",
   "manifest": "https://github.com/GMRobster/filepicker-pro/releases/latest/download/module.json",
   "download": "https://github.com/GMRobster/filepicker-pro/releases/latest/download/filepicker-pro.zip",
