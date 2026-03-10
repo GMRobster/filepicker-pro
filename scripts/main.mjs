@@ -85,20 +85,14 @@ async function injectSidebar(app) {
     return;
   }
 
-  // Body-Bereich finden
-  const body = root.querySelector("section.body");
-  if (!body) return;
-
-  // Wrapper
-  const wrapper = document.createElement("div");
-  wrapper.className = "fpp-wrapper";
-  body.parentNode.insertBefore(wrapper, body);
-  wrapper.appendChild(body);
+  // Sidebar direkt in window-content einfügen — volle Fensterhöhe
+  const windowContent = root.querySelector(".window-content");
+  if (!windowContent) return;
 
   // Sidebar
   const sidebar = document.createElement("div");
   sidebar.className = "fpp-sidebar";
-  wrapper.insertBefore(sidebar, body);
+  windowContent.insertBefore(sidebar, windowContent.firstChild);
 
   await refreshSidebar(sidebar, app);
 }

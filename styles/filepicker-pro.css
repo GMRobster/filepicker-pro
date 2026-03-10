@@ -445,3 +445,37 @@ form#file-picker {
 .fpp-sidebar {
   height: 100%;
 }
+
+/* ── V13 Fenster-Struktur: Sidebar über gesamte Höhe ── */
+
+/* Breite komplett freigeben */
+form#file-picker {
+  min-width: 0 !important;
+  width: auto !important;
+}
+
+/* Das window-content muss flex sein damit der Wrapper die volle Höhe bekommt */
+form#file-picker .window-content {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* standard-form (der eigentliche Inhalt) nimmt den Rest */
+form#file-picker .standard-form {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* Sidebar direkt im window-content, volle Höhe */
+form#file-picker .fpp-sidebar {
+  order: -1;
+  height: 100% !important;
+  align-self: stretch;
+}
